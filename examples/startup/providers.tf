@@ -3,7 +3,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = ">= 3.51, < 4.0"
+      version = "~> 4.0"
     }
     curl = {
       source  = "anschoewe/curl"
@@ -12,6 +12,10 @@ terraform {
     random = {
       source  = "hashicorp/random"
       version = "3.3.2"
+    }
+    azapi = {
+      source  = "Azure/azapi"
+      version = ">= 1.4.0, < 2.0"
     }
   }
 }
@@ -32,3 +36,9 @@ provider "azurerm" {
 provider "curl" {}
 
 provider "random" {}
+
+provider "azapi" {
+  tenant_id       = ""
+  subscription_id = ""
+  use_oidc        = true
+}
